@@ -230,8 +230,6 @@ Após a instalação, faça login usando o nome de usuário e a senha do **softp
 
 [Utilizando outro Softphone/Telefone](configure-softphones-ip_phones.md)
 
-:doc:`Utilizando outro Softphone/Telefone <sphinx:configure-softphones-ip_phones.md>`
-
 ## Etapa 13 Faça uma chamada entre telefones
 
 Basta chamar Alice e Bob por seus nomes. Você também pode usar seus apelidos alice (1000) e bob (1001). Disque 1000 de bob e 1001 de alice para testar a discagem.
