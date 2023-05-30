@@ -7,9 +7,9 @@ Seguindo este guia, você poderá iniciar uma operação de Cloud PBX em poucas 
 - [Introdução ao WeHostVoIP](#introdução-ao-wehostvoip)
   - [Conceitos WeHostVoIP](#conceitos-wehostvoip)
   - [Etapa 1 Criando um novo ISP](#etapa-1-criando-um-novo-isp)
-  - [Etapa 2 Criando um plano de serviço](#etapa-2-criando-um-plano-de-serviço)
-  - [Etapa 3 Criando um cliente](#etapa-3-criando-um-cliente)
-  - [Etapa 4 Criando uma operadora](#etapa-4-adicionando-uma-operadora)
+  - [Etapa 2 Criando uma operadora](#etapa-2-adicionando-uma-operadora)
+  - [Etapa 3 Criando um plano de serviço](#etapa-3-criando-um-plano-de-serviço)
+  - [Etapa 4 Criando um cliente](#etapa-4-criando-um-cliente)
   - [Etapa 5 Criando um plano de discagem](#etapa-5-criando-um-plano-de-discagem)
   - [Etapa 6 Adicionar números ao inventário](#etapa-6-adicionar-números-ao-inventário)
   - [Etapa 7 Criando domínios](#etapa-7-criando-domínios)
@@ -30,23 +30,23 @@ Existem três consoles diferentes para WeVoIP.
 
 Console ISP - https://isp.wehostvoip.io \
 Console do tenant - https://console.wehostvoip.io \
-Console de telefone - https://phone.wehostvoip.io \
+Console de telefone - https://phone.wehostvoip.io
 
 No console do ISP (https://isp.wehostvoip.io) você configura os planos mestres para o provedor de Cloud PBX. Você vai conectar operadoras, criar planos de serviço, ajustar regras de normalização para números e muitas tarefas que você terá que fazer apenas uma vez.
 
-![wehostvoip-isp](https://user-images.githubusercontent.com/4958202/153396697-236b7908-6c70-4fe8-8357-c304e5be5841.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/e5707f3e-e2f6-4583-9897-5c722cbaf81f)
 
 O console do tenant é realmente a interface do PBX, você criará um ou vários tenants por cliente. Não há limites para o número de tenants criados.
 
-![wehostvoip-subscribers](https://user-images.githubusercontent.com/4958202/153419253-5f00900a-9c67-4615-994c-d8b091ced713.png)
+![wehostvoip-subscribers](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/b968a34b-8a32-4ca1-bda7-9974c6fc2ffd)
 
 Finalmente a interface do telefone é um WebRTC onde você pode fazer ou receber chamadas. O sistema também suporta quase qualquer telefone ou dispositivo SIP.
 
-![imagem](https://user-images.githubusercontent.com/4958202/153306639-b3a04b17-c07e-49af-bb0d-7898f25b1499.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/d43509c0-dd56-4162-b7a0-e112fa468e5f)
 
 ## Etapa 1 Criando um novo ISP
 
-Para criar um novo ISP, você deve iniciar o processo de inscrição no portal isp.wehostvoip.io
+Para criar um novo ISP, você deve iniciar o processo de inscrição no portal [isp.wehostvoip.io](https://isp.wehostvoip.io)
 
 ![image](https://user-images.githubusercontent.com/4958202/225346057-b9e16205-acaf-437b-a137-d54ed41cbcaa.png)
 
@@ -66,11 +66,10 @@ Agora, existem parâmetros importantes aqui. O parâmetro mais importante é o n
 
 ![image](https://user-images.githubusercontent.com/4958202/225346784-c093b3df-5872-4cb4-bbb2-f3b8eca72a85.png)
 
-Basta preencher seus dados de contato e pressionar próximo
+Agora você pode personalizar seus logotipos e cores. \
+Para acessar novamente esta configuração, clicar no menu de opções no canto superior direito, Configurações, Tema.
 
 ![image](https://user-images.githubusercontent.com/4958202/225347049-1820c862-72c8-4fd6-9784-c755d364ed7b.png)
-
-Agora você pode personalizar seus logotipos e cores. Após fazer isso, pressione validar para verificar se você preencheu todos os dados necessários.
 
 Depois de terminar, você deve escolher um plano, os valores dos planos estão em dólares, contate-nos se você desejar um plano em reais. 
 
@@ -78,14 +77,36 @@ Depois de terminar, você deve escolher um plano, os valores dos planos estão e
 
 No final do processo você verá a tela de configuração do ISP
 
-![image](https://user-images.githubusercontent.com/4958202/225347697-fa16ae42-e442-4dbb-8777-e189465d5744.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/e5707f3e-e2f6-4583-9897-5c722cbaf81f)
 
-Vídeo, o video do processo de onboarding pode ser visto em:
+Vídeo, o vídeo do processo de onboarding pode ser visto em:
 
 [![Watch the video](https://i9.ytimg.com/vi_webp/8hhOX1ilF9o/mq1.webp?sqp=CMS4x6AG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGC4gMCh_MA8=&rs=AOn4CLDki5r-QMwWlO8X_d25cIAlbMol-A)](https://youtu.be/8hhOX1ilF9o)
 
+## Etapa 2 Adicionando uma operadora
 
-## Etapa 2 Criando um plano de serviço
+Agora é hora de especificar onde você terminará suas chamadas. Para este início vamos terminar as chamadas usando um gateway de teste chamado sipa.flagonc.com. Você pode testar as chamadas recebidas registrando um telefone no mesmo servidor. Vou fornecer instruções no ponto certo. Por enquanto vamos criar um gateway e uma operadora. Uma operadora pode ter mais de um gateway para redundância, mas o sistema não faz rota por prefixo. Esta é a função do softswitch ISP ou gateway que encerra as chamadas. Não queríamos ter redundância nessas funções.
+
+Ao criar uma operadora, o primeiro passo é criar o gateway e em seguida adicionar a operadora. Uma operadora pode ter mais de um gateway para no caso de falha do primeiro o segundo ser acionado. 
+
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/31849e1b-12e0-43a9-b7ef-b90cd9ca7d26)
+
+**Nome** Ao criar um gateway a primeira coisa que você adiciona é o nome, por exemplo, primário \
+**Endereço** Em seguida adiciona o endereço e a porta do gateway, por exemplo: sipa.flagonc.com:5600 \
+**Display** Display é a parte em texto do identificador de chamada, também chamado de FROM diaplay \
+**Strip de Saída** Remover N dígitos do número e.164 ou original antes de enviar para o gateway \
+**Prefixo de Saída** Adicionar esta string do lado esquerdo do número antes de enviar para o gateway, ocorre após o strip \
+**Strip de Entrada** Remover N dígitos do número que está chegando na porta de entrada do SBC \
+**Prefixo de Entrada** Adicionar esta string do lado esquero do número entrante antes de entrar no SBC, ocorre após o strip \
+**Dominio de Origem** Também chamado de *From domain*, muitas vezes necessário para a autenticação, normalmente o endereço do gateway \
+**Usuário de Origem** Também chamado de *From user*, é o caller ID e é frequentemente usado para validar a chamada, ver com sua operadora \
+**Aplicar sobre** Usada apenas para o número de saída. Aplicar as regras sobre o número e164 interno ou sobre o número originalmente discado \
+**Atributos** Atributos opcionais, reservado para o suporte técnico \
+**Adicionar PAI** - Adicionar o P-Asserted-Identtity. Isto pode ser necessário em algumas operadoras
+
+Ao terminar de preencher salve o gateway e salve a operadora. Se precisar de dois gateways crie os dois antes de salvar. 
+
+## Etapa 3 Criando um plano de serviço
 
 O plano de serviço é o coração do sistema. Você poderá alterar seus clientes usando um sistema pré-pago ou pós-pago. Você pode começar com algo tão simples quanto cobrar por mês e depois criar planos mais sofisticados para cobrar por trecho ou por prefixo. No início, vamos criar um plano simples para cobrar apenas uma taxa mensal.
 
@@ -93,44 +114,24 @@ Pressione, criar plano de serviço para começar a criar um plano.
 
 Nomeie seu primeiro plano de serviço como Padrão.
 
-![wehostvoip-service-plan-1](https://user-images.githubusercontent.com/4958202/153400844-7030dc71-5e6b-4dc4-ad17-34096eb36f41.png)
+![wehostvoip-service-plan-1](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/4b9cae38-9f23-4b79-9662-cc22e3721f86)
 
+
+Selecione a Operadora e Plano de discagem. \
 Para os próximos dois menus abaixo, marque a caixa "No Service Deck", "No Rate Deck"
 
-![service-plan-2](https://user-images.githubusercontent.com/4958202/153401140-0272f11b-7129-42e2-917a-b4545615d1b3.png)
+
+![service-plan-2](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/18fc8b74-d05a-4bd9-aa84-170fe3d673ad)
+
 
 Em seguida, pressione Criar Plano de Serviço, não saia da página sem criar o plano de serviço.
 
-## Etapa 3 Criando um cliente
+## Etapa 4 Criando um cliente
 
 Depois de criar um plano de serviço, agora você pode criar um cliente. Basta pressionar o menu do cliente no lado direito e pressionar criar para criar um novo cliente. Cliente é um de seus clientes que comprará um serviço de PBX. Antes de criar um tenant, você precisa criar um cliente.
 
-![wehostvoip-customer-01](https://user-images.githubusercontent.com/4958202/153402853-53436e6e-0d48-4e10-a6c8-e13993d0be3b.png)
-
-Há coisas importantes neste menu. O número máximo de assinantes e o número máximo de chamadas simultâneas. Você pode controlar quantas licenças cada usuário está usando de você. Você deve selecionar o plano de serviço e todos os outros campos são autoexplicativos.
-
-## Etapa 4 Adicionando uma operadora
-
-Agora é hora de especificar onde você terminará suas chamadas. Para este início vamos terminar as chamadas usando um gateway de teste chamado sipa.flagonc.com. Você pode testar as chamadas recebidas registrando um telefone no mesmo servidor. Vou fornecer instruções no ponto certo. Por enquanto vamos criar um gateway e uma operadora. Uma operadora pode ter mais de um gateway para redundância, mas o sistema não faz rota por prefixo. Esta é a função do softswitch ISP ou gateway que encerra as chamadas. Não queríamos ter redundância nessas funções.
-
-Ao criar uma operadora, o primeiro passo é criar o gateway e em seguida adicionar a operadora. Uma operadora pode ter mais de um gateway para no caso de falha do primeiro o segundo ser acionado. 
-
-![image](https://user-images.githubusercontent.com/4958202/225478963-92ba953d-b81e-4a43-90b7-90ec94e14cc4.png)
-
-**Nome** Ao criar um gateway a primeira coisa que você adiciona é o nome, por exemplo, primario \
-**Endereço** Em seguida adiciona o endereço e a porta do gateway, por exemplo: sipa.flagonc.com:5600\
-**Display** Display é a parte em texto do indentificador de chamada, também chamado de FROM diaplay\
-**Strip de Saída** Remover N dígitos do número e.164 ou original antes de enviar para o gateway\
-**Prefixo de Saída** Adicionar esta string do lado esquerdo do número antes de enviar para o gateway, ocorre após o strip\
-**Strip de Entrada** Remover N dígitos do número que está chegando na porta de entrada do SBC\
-**Prefixo de Entrada** Adicionar esta string do lado esquero do número entrante antes de entrar no SBC, ocorre após o strip\
-**Dominio de Origem** Também chamado de From domain, muitas vezes necessário para a autenticação, normalmente o endereço do gateway\
-**Usuário de Origem** Também chamado de From user, é o caller ID e é frequentemente usado para validar a chamada, ver com sua operadora\
-**Aplicar sobre** Usada apenas para o número de saída. Aplicar as regras sobre o número e164 interno ou sobre o número originalmente discado\
-**Atributos** Atributos opcionais, reservado para o suporte técnico\
-**Adicionar PAI** - Adicionar o P-Asserted-Identtity. Isto pode ser necessário em algumas operadoras\
-
-Ao terminar de prencher salve o gateway e salve a operadora. Se precisar de dois gateways crie os dois antes de salvar. 
+![wehostvoip-customer-01](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/7606475d-ae82-4184-803b-c5a476160a22)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/abf42801-a9ff-42df-8cf4-8b6fe97a868f)
 
 ## Etapa 5 Criando um plano de discagem
 
@@ -161,19 +162,24 @@ um tenant para atender seus clientes.
 
 Para criar um tenant é muito simples, você começa adicionando um domínio. Pode ser um subdomínio do seu namespace ou o domínio do cliente previamente criado e verificado. Vamos usar customer1 aqui como o domínio.
 
-![imagem](https://user-images.githubusercontent.com/4958202/153424359-8802e406-cc17-4cbf-80a2-57f716180184.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/f30bf22e-12d5-4bb5-8f15-c64d3d3e50a3)
 
-Depois de especificar o domínio, você deve especificar os controladores de cliente, operadora, administradores, plano de discagem e de borda de sessão. É um formulário muito rápido. O SBC compartilhado para o Brasil é sbc-br.wehostvoip.io:60110. Se você necessitar de um SBC não compartilhado entre em contato. Consulte sobre os planos gratuítos. 
+Depois de especificar o domínio, você deve especificar os controladores de cliente, operadora, administradores, plano de discagem e de borda de sessão. É um formulário muito rápido. O SBC compartilhado para o Brasil é sbc-br.wehostvoip.io:60110. Se você necessitar de um SBC não compartilhado entre em contato. Consulte sobre os planos gratuitos. 
 
 ## Etapa 9 Acessando seu tenant
 
-Clique no botão de visualização no final da linha (próximo aos botões excluir e editar). Você chegará à interface do tenant como abaixo.
+Clique no botão de visualização no final da linha (próximo aos botões excluir e editar).
 
-![wehostvoip-tenant-login](https://user-images.githubusercontent.com/4958202/153426130-c153085f-194c-4adb-8391-a01bf98be08d.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/10087d6e-622c-48dc-8ab3-ad3446035db9)
+
+Você chegará à interface do tenant como abaixo.
+
+![wehostvoip-tenant-login](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/df35a28b-051f-45c7-98ca-5f9e6579c2f7)
 
 Assim que o login for concluído, você acessará a interface abaixo.
 
-![imagem](https://user-images.githubusercontent.com/4958202/153426266-4b21a276-114a-404f-bfb6-1f55a32618d7.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/3c786c78-bc59-4812-813d-308af788fd42)
+
 
 ## Etapa 10 Criando assinantes
 
@@ -197,7 +203,8 @@ Agora, na tabela de assinantes, vamos criar dois usuários, Alice e Bob. Há mui
 * Máximo de chamadas simultâneas - "Quantidade máxima de chamadas simultâneas"
 * Tempo limite de discagem - "Quanto esperar para o usuário atender uma chamada"
 
-![imagem](https://user-images.githubusercontent.com/4958202/153440169-18a7170a-763a-470e-b725-1dceda01489a.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/4cdf6ecc-c0ec-46c8-91ee-c271354b03bb)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/fe437b4c-3c0a-4fe3-a76e-34618be64f14)
 
 **Não esqueça de adicionar uma senha para SIP e para o Softphone, anote a senha, você precisará da senha antes**
 
@@ -205,7 +212,7 @@ Agora, na tabela de assinantes, vamos criar dois usuários, Alice e Bob. Há mui
 
 Para cadastrar Alice no webphone, basta acessar a url https://phone.wehostvoip.io e adicionar o nome e a senha. Neste ponto, ainda não podemos fazer login com o Google ou o Azure. Para isso é necessário registrar e verificar um domínio. Você só poderá fazer login com o Google ou AzureAd se tiver um domínio sincronizado. Temos um capítulo especial para isso.
 
-![imagem](https://user-images.githubusercontent.com/4958202/153724987-44d9ba93-87b1-44d6-b186-f5059bfdb3d2.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/eb58b0c0-52fd-4467-9e46-31008c3957b5)
 
 Depois de fazer o login, você verá um círculo verde no canto superior direito.
 
@@ -217,7 +224,13 @@ Você só pode usar o softphone se estiver usando o Windows 7 ou posterior. Baix
 
 Após a instalação, faça login usando o nome de usuário e a senha do **softphone**.
 
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/9d01901c-a650-48f7-9d41-beede9144bb8)
+
 ![imagem](https://user-images.githubusercontent.com/4958202/153725448-8a30f3bf-c243-46b4-8fd7-d2bd97c47749.png)
+
+[Utilizando outro Softphone/Telefone](configure-softphones-ip_phones.md)
+
+:doc:`Utilizando outro Softphone/Telefone <sphinx:configure-softphones-ip_phones.md>`
 
 ## Etapa 13 Faça uma chamada entre telefones
 
@@ -225,13 +238,22 @@ Basta chamar Alice e Bob por seus nomes. Você também pode usar seus apelidos a
 
 ## Etapa 14 Adicionar um país no grupo de segurança
 
-Para evitar fraudes, os assinantes não têm permissão por padrão para fazer chamadas PSTN. Você terá que autorizar os países ou prefixos para permitir chamadas de saída. Nós tornamos esse processo muito fácil. Em nosso cas estamos adicionando EUA. Quando você seleciona EUA, ele seleciona todos os códigos de área da NANPA pertencentes aos EUA e não carrega destinos do Caribe frequentemente usados ​​para fraude.
+Para evitar fraudes, os assinantes não têm permissão por padrão para fazer chamadas PSTN. Você terá que autorizar os países ou prefixos para permitir chamadas de saída. Nós tornamos esse processo muito fácil. Em nosso caso estamos adicionando EUA. Quando você seleciona EUA, ele seleciona todos os códigos de área da NANPA pertencentes aos EUA e não carrega destinos do Caribe frequentemente usados ​​para fraude.
 
-![imagem](https://user-images.githubusercontent.com/4958202/153725725-aba5e01b-2a59-4c56-8357-9b3f7391933b.png)
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/9d6c33b4-f11f-42c5-b1e3-e7dbe4fdd8df)
+
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/dd257eb8-1862-47c7-ab51-c402de853564)
+
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/89a2e946-a539-477d-9966-fcfbc36ae479)
+
+Após adicionar os códigos/países clicar em salvar.
+
+![image](https://github.com/pauloantonio-git/wehostvoip-docs-pt/assets/104862214/0c60c9c1-c211-4de9-9700-10f49c8637f9)
+
 
 ## Etapa 15 Fazer uma chamada para um destino externo
 
-Disque 22224444, você deve receber uma mensagem engraçada. Como estamos usando ogateway de teste sua chamada não está indo para o PSTN. Se você quiser que sua chamada vá para o PSTN, você deve adicionar sua própria operadora.
+Disque 22224444, você deve receber uma mensagem engraçada. Como estamos usando o gateway de teste sua chamada não está indo para o PSTN. Se você quiser que sua chamada vá para o PSTN, você deve adicionar sua própria operadora.
 
 ## Etapa 16 Testando as chamadas recebidas
 
