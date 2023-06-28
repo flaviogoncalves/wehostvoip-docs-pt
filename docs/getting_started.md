@@ -106,6 +106,9 @@ Ao criar uma operadora, o primeiro passo é criar o gateway e em seguida adicion
 
 Ao terminar de preencher salve o gateway e salve a operadora. Se precisar de dois gateways crie os dois antes de salvar. 
 
+![image](https://github.com/flaviogoncalves/wehostvoip-docs-pt/assets/104862214/d3f9002f-a53a-4caf-8282-4505d1c9af29)
+
+
 ## Etapa 3 Criando um plano de serviço
 
 O plano de serviço é o coração do sistema. Você poderá alterar seus clientes usando um sistema pré-pago ou pós-pago. Você pode começar com algo tão simples quanto cobrar por mês e depois criar planos mais sofisticados para cobrar por trecho ou por prefixo. No início, vamos criar um plano simples para cobrar apenas uma taxa mensal.
