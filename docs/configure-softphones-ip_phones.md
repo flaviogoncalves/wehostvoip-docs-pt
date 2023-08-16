@@ -1,9 +1,9 @@
 # Guia de configuração Conta SIP de Softphones e Telefones IP
 
-- [wehostvoip](#WeHostVoip)
-- [microsip](#MicroSIP)
-- [intelbras_tip125i](#Intelbras_TIP125i)
-- [Yealink_T20P](yealink_t20p)
+- [WeHostVoip](#wehostvoip)
+- [MicroSIP](#microsip)
+- [Intelbras TIP125i](#intelbras-tip125i)
+- [Yealink T20P](#yealink-t20p)
 
 
 ## WeHostVoip
