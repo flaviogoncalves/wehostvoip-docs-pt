@@ -2,8 +2,8 @@
 
 - [WeHostVoip](#wehostvoip)
 - [MicroSIP](#microsip)
-- [Intelbras TIP125i](#intelbrastip125i)
-- [Yealink T20P](#yealinkt20p)
+- [Intelbras TIP125i](#intelbras-tip125i)
+- [Yealink T20P](#yealink-t20p)
 
 
 ## WeHostVoip
